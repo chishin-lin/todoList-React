@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SelectContainer = styled.div`
-margin-bottom:10px
+    margin-bottom:10px
 `;
 const SelectTitle = styled.select`
     border-radius: 20px;
@@ -11,16 +11,30 @@ const SelectTitle = styled.select`
     padding: 8px 15px;
     float: left;
 `;
-const Option = styled.option``
+
 export default function Select({onChangeType}) {
   // const A =()=>{onChangeType("private")}
+    const typeOptions=[
+      "All",
+      "private",
+      "work",
+      "family",
+      "learning",
+    ]
   return (
     <SelectContainer>
       <SelectTitle name="pets" id="pet-select" onChange={onChangeType}>
-          <Option value="private" >private</Option>
-          <Option value="work">work</Option>
-          <Option value="family">family</Option>
-          <Option value="learning">learning</Option>
+        { 
+          typeOptions.map(
+            (item,index) =>
+              <option 
+                key={index} 
+                value={item}
+                >
+                  {item}
+              </option>
+          )
+        }
 </SelectTitle>
     </SelectContainer>
   )

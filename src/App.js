@@ -1,6 +1,6 @@
 import {useState} from "react"
 import './App.css';
-import List from './components/List/ListsBox';
+import List from './components/List';
 import InputBox from './components/InputBox';
 import styled from 'styled-components';
 
@@ -16,15 +16,14 @@ const HeaderTitle=styled.div`
     text-shadow: 0px 4px 5px rgba(0,0,0,0.3);
 `;
 function App() {
-  const [ todoThings,setTodoThing ]=useState([])
-  const handleCreateTodo =(todo)=>{
+  const [todoThings, setTodoThing] = useState([])
+  const handleCreateTodo = (todo) => {
     setTodoThing([...todoThings,todo])
   };
-  const handleRemoveAll =()=>{
+  const handleRemoveAll = () => {
     setTodoThing([]);
   };
-  const handleDelectItem=(id)=>{
-    console.log(id)
+  const handleDelectItem= (id) => {
     setTodoThing(
       todoThings.filter((item)=>item.id!==id)
     )

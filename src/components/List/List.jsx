@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ListContainer=styled.div`
-background-color: #ffd18b;
-margin: 10px;
-padding: 10px 40px;
-font-size: 24px;
-display: flex;
-justify-content: space-between;
+    background-color: #ffd18b;
+    margin: 10px;
+    padding: 10px 40px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
 `;
 const TypeBtn = styled.div`
     background-color: #e96d3c;
@@ -21,14 +21,13 @@ const ContainerRight = styled.div`
     display: flex;
     align-items: center;
     color: #505050;
-}
 `;
 const BtnContainer = styled.div`
     display: flex;
 `;
 const Btn = styled.div`
     color: #ffd18b;
-    background-color: ${props=>props.color===true?" #4e4e4e":"white"}; 
+    background-color: ${props=>props.finish ? " #4e4e4e" : "white" }; 
     padding: 5px 10px;
     border-radius: 20px;
     font-weight: 600;
@@ -36,8 +35,7 @@ const Btn = styled.div`
     margin-left: 10px;
 `;
 const ListText = styled.div`
-    text-decoration: ${props=>props.color===true?"line-through":""}; 
-    ;   
+    text-decoration: ${props=>props.finish ? "line-through" : ""}; 
 `;
 
 // color: #ffd18b;
@@ -48,10 +46,10 @@ export default function List({text,type,onDelectItem,id}) {
     <ListContainer>
         <ContainerRight>
             <TypeBtn>{type}</TypeBtn>
-            <ListText color={finish}>{text}</ListText>
+            <ListText finish={finish}>{text}</ListText>
         </ContainerRight>
         <BtnContainer>
-            <Btn onClick={()=>{setFinish(!finish)}} color={finish} >V</Btn>
+            <Btn onClick={()=>{setFinish(!finish)}} finish={finish} >V</Btn>
             <Btn onClick={()=>{onDelectItem(id)}}>X</Btn>
         </BtnContainer>
     </ListContainer> 

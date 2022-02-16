@@ -36,23 +36,23 @@ const InputTodo = styled.input`
     margin: 10px 8px;
     width: 400px;
     padding: 8px;
-::placeholder,
-  ::-webkit-input-placeholder {
+    ::placeholder,
+    ::-webkit-input-placeholder {
     color:#c8dddd;
     font-weight: 700;
-  }
-  :-ms-input-placeholder {
-     color: red;
-  }
+    }
+    :-ms-input-placeholder {
+        color: red;
+    }
 `;
 export default function Index({onCreateTodo}) {
     let id =1;
-    const [todo,setTodo]=useState({
+    const [todo,setTodo] = useState({
         workType:"private",
         text:'',
         id: id,
     });
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         onCreateTodo(todo);
         setTodo({
             workType:"private",
@@ -60,7 +60,7 @@ export default function Index({onCreateTodo}) {
             id: todo.id+1,
         });
     };
-    const handleChooseType=(text)=>{
+    const handleChooseType = (text) => {
         setTodo({...todo, workType:text})
     }
 

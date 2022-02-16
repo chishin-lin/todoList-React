@@ -16,6 +16,10 @@ const RemoveBtn = styled.div`
 export default function Remove({onRemoveAll}) {
   return (
     
-    <RemoveBtn onClick={()=>onRemoveAll()}>Remove All</RemoveBtn>
+    <RemoveBtn 
+      onClick={() => onRemoveAll()}
+    >
+      Remove All
+    </RemoveBtn>
   )
 }
